@@ -1,0 +1,101 @@
+# Copyright (C) 2020 Lynn (lynn.mvp at tutanota dot com)
+# This file is distributed under the same license as the EthPress Token Roles package.
+msgid ""
+msgstr ""
+"Project-Id-Version: EthPress Token Roles 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ethpress-tokens\n"
+"POT-Creation-Date: 2020-10-06 09:03:52+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: app/Admin/Options.php:27 app/Admin/Options.php:45
+msgid "EthPress Tokens"
+msgstr ""
+
+#: app/Admin/Options.php:71
+msgid "Limit EthPress Logins Based on Token Ownership"
+msgstr ""
+
+#: app/Admin/Options.php:77 app/Admin/Options.php:182
+msgid "Settings"
+msgstr ""
+
+#: app/Admin/Options.php:106
+msgid "API key from https://etherscan.io"
+msgstr ""
+
+#: app/Admin/Options.php:107
+msgid "API key"
+msgstr ""
+
+#: app/Admin/Options.php:108
+msgid "Without a key, you will get rate limited, which is not good."
+msgstr ""
+
+#: app/Admin/Options.php:110
+msgid "Roles to assign"
+msgstr ""
+
+#: app/Admin/Options.php:128
+msgid "Add New"
+msgstr ""
+
+#: app/Admin/Options.php:129
+msgid ""
+"Format: 0xContract_Address:role1,role2,role3... Contract address, colon, "
+"roles"
+msgstr ""
+
+#: app/Admin/Options.php:130
+msgid ""
+"You may assign many roles, separated with a comma. Blank lines are removed "
+"on save."
+msgstr ""
+
+#: app/Plugin.php:137
+msgid "Unexpected error, try again soon."
+msgstr ""
+
+#: ethpress-token-roles.php:34
+#. translators: version numbers.
+msgid ""
+"“%1$s” requires PHP %2$s (or newer) and WordPress %3$s (or newer) to "
+"function properly. Your site is using PHP %4$s and WordPress %5$s. Please "
+"upgrade. The plugin has been automatically deactivated."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "EthPress Token Roles"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://gitlab.com/losnappas/ethpress-tokens"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Token limit control for EthPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Lynn (lynn.mvp at tutanota dot com)"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://gitlab.com/losnappas/"
+msgstr ""
