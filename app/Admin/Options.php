@@ -101,6 +101,8 @@ class Options {
 				'etherscan_api_key'  => '',
 				'contract_addresses' => array(),
 				'ranges' =>array(),
+				'nftcontracts' =>array(),
+				'nftroles' =>array(),
 			)
 		);
 		?>
@@ -131,10 +133,14 @@ class Options {
 		<p class="description"><?php esc_html_e( 'Format: 0xContract_Address:role1,role2,role3... Contract address, colon, roles', 'ethpress_token_roles' ); ?></p>
 		<p class="description"><?php esc_html_e( 'You may assign many roles, separated with a comma. Blank lines are removed on save.', 'ethpress_token_roles' ); ?></p>
 		
-			<h4><?php esc_html_e( 'Roles limits ', 'ethpress_token_roles' ); ?></h4>
-			<input id="ethpress_token_roles_ranges" name="ethpress_token_roles[ranges]" placeholder="<?php esc_attr_e( 'ranges', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['ranges'] ))); ?>">
+		<h4><?php esc_html_e( 'Roles limits ', 'ethpress_token_roles' ); ?></h4>
+		<input id="ethpress_token_roles_ranges" name="ethpress_token_roles[ranges]" placeholder="<?php esc_attr_e( 'ranges', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['ranges'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the role limits in order, separated by ";".The number of roles must be equal with the number of limits', 'ethpress_token_roles' ); ?></p>
-
+		<h4><?php esc_html_e( 'Nft roles ', 'ethpress_token_roles' ); ?></h4>
+		<input id="ethpress_token_roles_nftcontracts" name="ethpress_token_roles[nftcontracts]" placeholder="<?php esc_attr_e( 'nftcontracts', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftcontracts'] ))); ?>">
+		<p class="description"><?php esc_html_e( 'Put the nft contracts in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
+		<input id="ethpress_token_roles_nftroles" name="ethpress_token_roles[nftroles]" placeholder="<?php esc_attr_e( 'nftroles', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftroles'] ))); ?>">
+		<p class="description"><?php esc_html_e( 'Put the roles you want to assign for each NFT in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
 	
 		<?php
 	}
@@ -170,6 +176,16 @@ class Options {
 				$ranges = trim( sanitize_text_field( $value ) );
 				$ranges = explode( ';', $ranges );
 				$opts['ranges'] = $ranges;
+			}
+			if ( 'nftcontracts' === $key ) {
+				$nftcontracts = trim( sanitize_text_field( $value ) );
+				$nftcontracts = explode( ';', $nftcontracts );
+				$opts['nftcontracts'] = $nftcontracts;
+			}
+			if ( 'nftroles' === $key ) {
+				$nftroles = trim( sanitize_text_field( $value ) );
+				$nftroles = explode( ';', $nftroles );
+				$opts['nftroles'] = $nftroles;
 			}
 		return $opts;
 	}
