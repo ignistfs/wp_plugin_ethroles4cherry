@@ -101,11 +101,14 @@ class Options {
 				'etherscan_api_key'  => '',
 				'contract_addresses' => array(),
 				'ranges' =>array(),
-				'nftc' =>array(),
-				'nftroles' =>array(),
+				'nfts' =>array(
+				"contracts" => array(),
+				"roles" => array(),
+				),
 			)
 		);
 		?>
+<?php print_r($options)?>
 		<h4><?php esc_html_e( 'API key from https://etherscan.io', 'ethpress_token_roles' ); ?></h4>
 		<input id="ethpress_token_roles_etherscan_api_key" name="ethpress_token_roles[etherscan_api_key]" placeholder="<?php esc_attr_e( 'API key', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( $options['etherscan_api_key'] ); ?>">
 		<p class="description"><?php esc_html_e( 'Without a key, you will get rate limited, which is not good.', 'ethpress_token_roles' ); ?></p>
@@ -137,9 +140,9 @@ class Options {
 		<input id="ethpress_token_roles_ranges" name="ethpress_token_roles[ranges]" placeholder="<?php esc_attr_e( 'ranges', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['ranges'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the role limits in order, separated by ";".The number of roles must be equal with the number of limits', 'ethpress_token_roles' ); ?></p>
 		<h4><?php esc_html_e( 'Nft roles ', 'ethpress_token_roles' ); ?></h4>
-		<input id="ethpress_token_roles_nftc" name="ethpress_token_roles[nftc]" placeholder="<?php esc_attr_e( 'nftc', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftc'] ))); ?>">
+		<input id="ethpress_token_roles_nnncontracts" name="ethpress_token_roles[nnncontracts]" placeholder="<?php esc_attr_e( 'nnncontracts', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nfts']['contracts'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the nft contracts in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
-		<input id="ethpress_token_roles_nftroles" name="ethpress_token_roles[nftroles]" placeholder="<?php esc_attr_e( 'nftroles', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftroles'] ))); ?>">
+		<input id="ethpress_token_roles_nftroles" name="ethpress_token_roles[nftroles]" placeholder="<?php esc_attr_e( 'nftroles', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nfts']['roles'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the roles you want to assign for each NFT in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
 	
 		<?php
@@ -157,6 +160,23 @@ class Options {
 		$opts = get_option( 'ethpress_token_roles', array() );
 		$vals = array();
 		foreach ( $input as $key => $value ) {
+			
+			 if ( 'nnncontracts' === $key ) {
+				$nftc = trim( sanitize_text_field( $value ) );
+				$nftc = explode( ';', $nftc );
+				$opts['nfts']['contracts'] = 's';
+			}
+						if ( 'ranges' === $key ) {
+				$ranges = trim( sanitize_text_field( $value ) );
+				$ranges = explode( ';', $ranges );
+				$opts['ranges'] = $ranges;
+			}
+			if ( 'nftroles' === $key ) {
+				$nftroles = trim( sanitize_text_field( $value ) );
+				$nftroles = explode( ';', $nftroles );
+				$opts['nfts']['roles'] = $nftroles;
+			}
+			
 			if ( 'etherscan_api_key' === $key ) {
 				$opts['etherscan_api_key'] = trim( sanitize_text_field( $value ) );
 			} else {
@@ -172,21 +192,6 @@ class Options {
 			}
 		}
 		$opts['contract_addresses'] = $vals;
-			if ( 'ranges' === $key ) {
-				$ranges = trim( sanitize_text_field( $value ) );
-				$ranges = explode( ';', $ranges );
-				$opts['ranges'] = $ranges;
-			}
-			if ( 'nftc' === $key ) {
-				$nftc = trim( sanitize_text_field( $value ) );
-				$nftc = explode( ';', $nftc );
-				$opts['nftc'] = $nftc;
-			}
-			if ( 'nftroles' === $key ) {
-				$nftroles = trim( sanitize_text_field( $value ) );
-				$nftroles = explode( ';', $nftroles );
-				$opts['nftroles'] = $nftroles;
-			}
 		return $opts;
 	}
 
