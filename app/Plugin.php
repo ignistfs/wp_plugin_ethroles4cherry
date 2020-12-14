@@ -136,8 +136,8 @@ class Plugin {
 		}
 		}
 	
-	 $nftcontracts = $options['nftcontracts'];
-	 $nftroles = $options['nftroles'];
+	 $nftcontracts = $options['nfts']['contracts'];
+	 $nftroles = $options['nfts']['roles'];
 	 $ic = count($nftcontracts);
 	 $icc = 0;
          while($ic < $icc){
