@@ -108,7 +108,6 @@ class Options {
 			)
 		);
 		?>
-<?php print_r($options)?>
 		<h4><?php esc_html_e( 'API key from https://etherscan.io', 'ethpress_token_roles' ); ?></h4>
 		<input id="ethpress_token_roles_etherscan_api_key" name="ethpress_token_roles[etherscan_api_key]" placeholder="<?php esc_attr_e( 'API key', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( $options['etherscan_api_key'] ); ?>">
 		<p class="description"><?php esc_html_e( 'Without a key, you will get rate limited, which is not good.', 'ethpress_token_roles' ); ?></p>
@@ -164,7 +163,7 @@ class Options {
 			 if ( 'nnncontracts' === $key ) {
 				$nftc = trim( sanitize_text_field( $value ) );
 				$nftc = explode( ';', $nftc );
-				$opts['nfts']['contracts'] = 's';
+				$opts['nfts']['contracts'] = $nftc;
 			}
 						if ( 'ranges' === $key ) {
 				$ranges = trim( sanitize_text_field( $value ) );
