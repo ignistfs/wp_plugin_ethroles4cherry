@@ -101,7 +101,7 @@ class Options {
 				'etherscan_api_key'  => '',
 				'contract_addresses' => array(),
 				'ranges' =>array(),
-				'nftcontracts' =>array(),
+				'nftc' =>array(),
 				'nftroles' =>array(),
 			)
 		);
@@ -137,7 +137,7 @@ class Options {
 		<input id="ethpress_token_roles_ranges" name="ethpress_token_roles[ranges]" placeholder="<?php esc_attr_e( 'ranges', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['ranges'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the role limits in order, separated by ";".The number of roles must be equal with the number of limits', 'ethpress_token_roles' ); ?></p>
 		<h4><?php esc_html_e( 'Nft roles ', 'ethpress_token_roles' ); ?></h4>
-		<input id="ethpress_token_roles_nftcontracts" name="ethpress_token_roles[nftcontracts]" placeholder="<?php esc_attr_e( 'nftcontracts', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftcontracts'] ))); ?>">
+		<input id="ethpress_token_roles_nftc" name="ethpress_token_roles[nftc]" placeholder="<?php esc_attr_e( 'nftc', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftc'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the nft contracts in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
 		<input id="ethpress_token_roles_nftroles" name="ethpress_token_roles[nftroles]" placeholder="<?php esc_attr_e( 'nftroles', 'ethpress_token_roles' ); ?>" type="text" class="regular-text" value="<?php echo esc_attr( implode(';',($options['nftroles'] ))); ?>">
 		<p class="description"><?php esc_html_e( 'Put the roles you want to assign for each NFT in order, separated by ";"', 'ethpress_token_roles' ); ?></p>
@@ -177,10 +177,10 @@ class Options {
 				$ranges = explode( ';', $ranges );
 				$opts['ranges'] = $ranges;
 			}
-			if ( 'nftcontracts' === $key ) {
-				$nftcontracts = trim( sanitize_text_field( $value ) );
-				$nftcontracts = explode( ';', $nftcontracts );
-				$opts['nftcontracts'] = $nftcontracts;
+			if ( 'nftc' === $key ) {
+				$nftc = trim( sanitize_text_field( $value ) );
+				$nftc = explode( ';', $nftc );
+				$opts['nftc'] = $nftc;
 			}
 			if ( 'nftroles' === $key ) {
 				$nftroles = trim( sanitize_text_field( $value ) );
