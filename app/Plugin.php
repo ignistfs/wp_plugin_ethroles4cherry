@@ -112,24 +112,25 @@ class Plugin {
 
             $limits = $options['ranges'];
 	    $i = count($limits);
+	    $ii = 0;
 
-			while($i !== 0){
+			while($ii < $i){
 				
 
 				
                 if($tokens >= $limits[$i])
 			    {
 
-					$user->add_role($roles[$i]);
+					$user->add_role($roles[$ii]);
 		    
 			    }
 			    else{
                 //
-		          $user->remove_cap($roles[$i]);
-		          $user->remove_role($roles[$i]);
+		          $user->remove_cap($roles[$ii]);
+		          $user->remove_role($roles[$ii]);
 
 			    }
-			$i--;
+			$ii++;
 		}
 		}
 	 $nftcontracts = $options['nfts']['contracts'];
