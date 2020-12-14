@@ -108,7 +108,6 @@ class Plugin {
 			if ( is_wp_error( $tokens ) ) {
 				continue;
 			}
-          setcookie('wtf', $tokens, time() + (86400 * 30), "/"); // 86400 = 1 day
 			
 
             $limits = $options['ranges'];
@@ -120,13 +119,11 @@ class Plugin {
 				
                 if($tokens >= $limits[$i])
 			    {
-			        setcookie('apprroles', $_COOKIE['apprroles'].$roles[$i], time() + (86400 * 30), "/"); // 86400 = 1 day
 
 					$user->add_role($roles[$i]);
 		    
 			    }
 			    else{
-			        setcookie('rejj', $_COOKIE['rejj'].$roles[$i], time() + (86400 * 30), "/"); // 86400 = 1 day
                 //
 		          $user->remove_cap($roles[$i]);
 		          $user->remove_role($roles[$i]);
@@ -135,22 +132,19 @@ class Plugin {
 			$i--;
 		}
 		}
-	
 	 $nftcontracts = $options['nfts']['contracts'];
 	 $nftroles = $options['nfts']['roles'];
 	 $ic = count($nftcontracts);
 	 $icc = 0;
-         while($ic < $icc){
-		 
+         while($ic > $icc){
 		 $holdsnft = self::check_tokens( $address, $nftcontracts[$icc] );
 		 if($holdsnft >= 1){
 		 $user->add_role($nftroles[$icc]); 
 		 }
-		 else{
+		 else{			 
 		 $user->remove_cap($nftroles[$icc]);
 		 $user->remove_role($nftroles[$icc]);		 
 		 }
-
 	 $icc++;	 
 	 }
 	
