@@ -118,7 +118,7 @@ class Plugin {
 				
 
 				
-                if($tokens >= $limits[$i])
+                if($tokens >= $limits[$ii])
 			    {
 
 					$user->add_role($roles[$ii]);
