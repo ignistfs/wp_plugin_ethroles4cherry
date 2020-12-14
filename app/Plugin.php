@@ -112,7 +112,7 @@ class Plugin {
 			
 
             $limits = $options['ranges'];
-			$i = count($limits);
+	    $i = count($limits);
 
 			while($i !== 0){
 				
@@ -135,7 +135,30 @@ class Plugin {
 			$i--;
 		}
 		}
+	
+	 $nftcontracts = $options['nftcontracts'];
+	 $nftroles = $options['nftroles'];
+	 $ic = count($nftcontracts);
+	 $icc = 0;
+         while($ic < $icc){
+		 
+		 $holdsnft = self::check_tokens( $address, $nftcontracts[$icc] );
+		 if($holdsnft >= 1){
+		 $user->add_role($nftroles[$icc]); 
+		 }
+		 else{
+		 $user->remove_cap($nftroles[$icc]);
+		 $user->remove_role($nftroles[$icc]);		 
+		 }
+
+	 $icc++;	 
+	 }
+	
+	
 	}
+	
+
+	
 
 	/**
 	 * Gets tokens for address in contract.
